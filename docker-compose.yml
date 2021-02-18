@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  stepik_teachers:
+    build: stepik_teachers/
+    restart: always
+    network_mode: host
+    volumes:
+      - .:/home/julia/stepik-teachers-data/
+  db:
+    image: postgres:13.2-alpine
+    env_file:
+      - flask-food-delivery-master/database.env
+  flask-food-delivery:
+    build: flask-food-delivery-master/
+    restart: always
+    network_mode: host
+    depends_on:
+      - db
+    volumes:
+      - db-data:/home/julia/flask-food-delivery-data/
+
+volumes:
+  db-data:
+
