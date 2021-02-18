@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block body %}
+
+  <main class="container">
+    <h1 class="h3 my-4">Корзина</h1>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <div class="message_flash alert alert-danger fade show hide mt-4">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <div class="row mt-5">
+      
+      <form class="col-4" action="", method="POST">
+        <h4 class="">Ваши данные</h4>
+        
+        <div class=" md-4 order-md-1">
+          <div class="mt-3 mb-3">
+            {{ form.hidden_tag() }}
+
+            {{ form.name.label }}
+            {{ form.name(class="font-weight-bold form-control", value=current_user.name) }}
+          </div>
+        </div>
+        <div class=" md-4 order-md-1">
+          <div class="mt-3 mb-3">
+            {{ form.address.label }}
+            {{ form.address(class="font-weight-bold form-control", value=current_user.address) }}
+          </div>
+        </div>
+        <div class="md-4 form-label-group">
+          {{ form.inputEmail.label }}
+          {{ form.inputEmail(class="form-control", value=current_user.email) }}
+        </div>
+        <div class=" md-4 order-md-1">
+          <div class="mt-3 mb-3">
+            {{ form.phone.label }}
+            {{ form.phone(class="font-weight-bold form-control") }}
+          </div>
+        </div>
+        {{ form.submit(class=" mt-3 mb-5 btn btn-danger") }}
+      </form>
+     
+      <div class="col-1"></div>
+      <div class="col-7">
+        <h4 class="mb-3 col-7 mb-5">{{ menu.values() | sum }} блюда в корзине</h4>
+        <table class="table">
+          <tbody>
+            {% set summ = namespace(items=0) %}
+            {% for key, value in menu.items() %}
+            <tr>
+              <th scope="row">{{ key.title }}</th>
+              <td></td>
+              <td>{{ value }}</td>
+              <td>{{ key.price * value }}</td>
+              {% set summ.items = summ.items + key.price * value %}
+              <td><a id="deletefromcart" class="text-danger" href="{{ url_for('deletefromcart', id=key.id) }}">Удалить</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <hr>
+        <p class="display-4 my-2 ">{{ summ.items }} руб</p>
+      </div>
+    </div>
+  </main>
+  
+{% endblock %}
