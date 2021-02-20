@@ -1,11 +1,14 @@
 pipeline {
-    agent any
-    stages{
-        stage('Setting the variables values') {
+    agent { 
+        docker{
+        image 'python:3.5.1'
+        args '--name docker'
+        }
+     }
+    stages {
+        stage('build') {
             steps {
-                sh '''
-                    docker-compose up
-                '''
+                sh 'python --version'
             }
         }
     }
