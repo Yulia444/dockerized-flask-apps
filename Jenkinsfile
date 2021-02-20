@@ -1,14 +1,11 @@
 pipeline {
-    agent { 
-        docker{
-        image 'python:3.5.1'
-        }
-     }
-    stages {
-        stage('build') {
-            steps {
-                sh 'python --version'
-            }
+    agent any
+    stage('Setting the variables values') {
+        steps {
+            sh '''
+                #!/bin/bash
+                echo "hello world"
+            '''
         }
     }
 }
