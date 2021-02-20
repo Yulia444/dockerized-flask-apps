@@ -1,7 +1,6 @@
 pipeline {
     agent { 
         docker{
-        label 'Docker'
         image 'python:3.5.1'
         }
      }
