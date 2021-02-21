@@ -8,12 +8,9 @@ pipeline {
         stage('build') {
             steps {
                 sh 'python --version'
+                sh 'pwd'
             }
         }
-        stage('docker-compose'){
-            steps {
-                sh 'docker-compose up'
-            }
-        }
+
     }
 }
