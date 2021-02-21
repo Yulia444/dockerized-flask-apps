@@ -3,15 +3,16 @@ pipeline {
     stages {
         stage('docker-compose up') {
             steps {
-                sh 'cd ..'
-                sh 'pwd'
-                sh 'ls'
-                sh 'docker ps'
-                sh 'docker ps -la'
                 sh 'cat docker-compose.yml'
                 sh 'docker-compose up'
-                sh 'docker-compose stop'
 
+            }
+        }
+        stage('stop running containers') {
+            steps {
+                sh 'docker stop job_main_stepik_teachers_1'
+                sh 'docker stop job_main_flask-food-delivery_1'
+                sh 'docker stop job_main_db_1'
             }
         }
 
