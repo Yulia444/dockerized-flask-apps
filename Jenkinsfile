@@ -11,8 +11,10 @@ pipeline {
                 sh 'pwd'
                 sh 'ls'
                 sh 'cd ..'
+                sh 'pwd'
                 sh 'ls'
-                
+                sh 'docker-compose up'
+
             }
         }
 
