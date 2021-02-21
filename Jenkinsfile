@@ -3,7 +3,6 @@ pipeline {
     stages {
         stage('docker-compose up') {
             steps {
-                sh 'python --version'
                 sh 'cd ..'
                 sh 'pwd'
                 sh 'ls'
