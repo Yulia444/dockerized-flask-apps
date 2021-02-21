@@ -2,7 +2,7 @@ version: "3"
 
 services:
   stepik_teachers:
-    build: stepik_teachers/
+    build: stepik_teachers_master/
     restart: always
     network_mode: host
     volumes:
