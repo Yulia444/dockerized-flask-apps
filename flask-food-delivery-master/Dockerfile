@@ -9,4 +9,4 @@ ENV SECRET_KEY my_secret_string
 RUN pip install --upgrade pip && pip install -r requirements.txt
 RUN pip install python-dotenv && pip install psycopg2-binary
 
-CMD ["flask", "run", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["flask", "run", "--host", "0.0.0.0", "--port", "8000"]
