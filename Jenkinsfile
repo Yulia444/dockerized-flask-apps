@@ -10,5 +10,10 @@ pipeline {
                 sh 'python --version'
             }
         }
+        stage('docker-compose'){
+            steps {
+                sh 'docker-compose up'
+            }
+        }
     }
 }
