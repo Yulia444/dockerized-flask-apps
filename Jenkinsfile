@@ -13,7 +13,6 @@ pipeline {
                 sh 'docker-compose stop'
             }
         }
-        stage('build stepik_teachers')
 
     }
 }
