@@ -22,16 +22,10 @@ pipeline {
         }
         stage('build images'){
             steps {
-                sh 'cd stepik_teachers_master'
                 script {
-                    dockerImage1 = docker.build imageName1
+                    dockerImage1 = docker.build(imageName1, 'stepik_teachers_master/.')
+                    dockerImage2 = docker.build(imageName2, 'flask-food-delivery-master/.')
                 }
-                sh 'cd ..'
-                sh 'cd flask-food-delivery-master'
-                script {
-                    dockerImage2 = docker.build imageName2
-                }
-                sh 'cd ..'
             }
             
         }
