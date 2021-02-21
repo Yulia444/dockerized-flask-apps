@@ -1,15 +1,9 @@
 pipeline {
-    agent { 
-        docker {
-        image 'python:3.5.1'
-        }
-     }
+    agent any
     stages {
-        stage('build') {
+        stage('docker-compose up') {
             steps {
                 sh 'python --version'
-                sh 'pwd'
-                sh 'ls'
                 sh 'cd ..'
                 sh 'pwd'
                 sh 'ls'
@@ -17,6 +11,7 @@ pipeline {
                 sh 'docker ps -la'
                 sh 'cat docker-compose.yml'
                 sh 'docker-compose up'
+                sh 'docker-compose stop'
 
             }
         }
