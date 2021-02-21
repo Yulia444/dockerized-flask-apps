@@ -33,8 +33,8 @@ pipeline {
             steps{
                 script {
                     docker.withRegistry('', dockerHubCredentials) {
-                        dockerImage1.push(imageName1)
-                        dockerImage2.push(imageName2)
+                        dockerImage1.push()
+                        dockerImage2.push()
                     }
                 }
             }
