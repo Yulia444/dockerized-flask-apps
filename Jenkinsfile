@@ -37,9 +37,11 @@ pipeline {
         }
         stage('deploy images'){
             steps{
-                docker.withRegistry('', dockerHub) {
-                    dockerImage1.push(imageName1)
-                    dockerImage2.push(imageName2)
+                script {
+                    docker.withRegistry('', dockerHub) {
+                        dockerImage1.push(imageName1)
+                        dockerImage2.push(imageName2)
+                    }
                 }
             }
         }
