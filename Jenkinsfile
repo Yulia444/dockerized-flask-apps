@@ -2,7 +2,7 @@ pipeline {
     environment{
         dockerHubCredentials = "docker-hub-credentials"
         dockerHubUsername = "juliaolkhovyk"
-        dockerImageTag = "latest"
+        dockerImageTag = "1.0.0"
         imageName1 = "$dockerHubUsername/stepik-teachers:$dockerImageTag"
         imageName2 = "$dockerHubUsername/food-delivery:$dockerImageTag"
     }
