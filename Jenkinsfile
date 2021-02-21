@@ -10,6 +10,9 @@ pipeline {
                 sh 'python --version'
                 sh 'pwd'
                 sh 'ls'
+                sh 'cd ..'
+                sh 'ls'
+                
             }
         }
 
