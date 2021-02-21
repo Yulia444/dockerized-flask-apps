@@ -32,7 +32,7 @@ pipeline {
         stage('deploy images'){
             steps{
                 script {
-                    docker.withRegistry('https://hub.docker.com/', dockerHub) {
+                    docker.withRegistry('', dockerHubCredentials) {
                         dockerImage1.push(imageName1)
                         dockerImage2.push(imageName2)
                     }
