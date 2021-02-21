@@ -13,6 +13,7 @@ pipeline {
                 sh 'cd ..'
                 sh 'pwd'
                 sh 'ls'
+                sh 'cat docker-compose.yml'
                 sh 'docker-compose up'
 
             }
